@@ -1,5 +1,6 @@
 class Solution
 {
+    
     //Complete this function
     //Function to check if brackets are balanced or not.
     public bool ispar(string x)
