@@ -1,0 +1,31 @@
+
+if (inputArray.Length == 0)
+    return 0;  // No elements to process
+
+int uniqueCount = 1; // Start with the first element as unique
+
+// Loop through the array starting from the second element
+for (int i = 1; i < inputArray.Length; i++)
+{
+    bool isDuplicate = false;
+
+    // Check if the current element already exists in the array before it
+    for (int j = 0; j < uniqueCount; j++)
+    {
+        if (inputArray[i].Equals(inputArray[j]))
+        {
+            isDuplicate = true;
+            break;
+        }
+    }
+
+    // If it's not a duplicate, move it to the unique part of the array
+    if (!isDuplicate)
+    {
+        inputArray[uniqueCount] = inputArray[i];
+        uniqueCount++;
+    }
+}
+
+// Return the count of unique elements
+return uniqueCount;
