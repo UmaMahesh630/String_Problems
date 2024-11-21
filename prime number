@@ -1,0 +1,35 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Enter the range to generate prime numbers:");
+        Console.Write("Start: ");
+        int start = int.Parse(Console.ReadLine());
+        Console.Write("End: ");
+        int end = int.Parse(Console.ReadLine());
+
+        Console.WriteLine($"Prime numbers between {start} and {end}:");
+        for (int i = start; i <= end; i++)
+        {
+            if (IsPrime(i))
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+
+    static bool IsPrime(int num)
+    {
+        if (num <= 1) return false; // Numbers less than or equal to 1 are not prime.
+
+        // Iterate up to num / 2
+        for (int i = 2; i <= num / 2; i++)
+        {
+            if (num % i == 0) return false; // If divisible, not prime.
+        }
+
+        return true; // Otherwise, prime.
+    }
+}
