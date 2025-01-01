@@ -1,0 +1,27 @@
+public class Solution {
+    public int RepeatedStringMatch(string a, string b) {
+         int repeatCount = 1;
+        StringBuilder repeatedStr = new StringBuilder(a);
+
+        // Repeat until the repeated string length >= b length
+        while (repeatedStr.Length < b.Length) {
+            repeatedStr.Append(a);
+            repeatCount++;
+        }
+        // Check if b is a substring of the repeated string
+        if (repeatedStr.ToString().Contains(b)) {
+            return repeatCount;
+        }
+        // Append one more time to cover edge cases
+        repeatedStr.Append(a);
+        if (repeatedStr.ToString().Contains(b)) {
+            return repeatCount + 1;
+        }
+
+        return -1; // If b is not found as a substring
+    }
+}
+
+Input: a = "abcd", b = "cdabcdab"
+Output: 3
+Explanation: We return 3 because by repeating a three times "abcdabcdabcd", b is a substring of it.
